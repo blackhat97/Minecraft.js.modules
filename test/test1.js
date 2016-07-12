@@ -1,4 +1,4 @@
-var block = worldedit.createBlock(args[1]);
+var block = worldedit.createBlock('gold block');
 
 // (0, 4, 0)에서부터 (4, 4, 0)까지 5개 블럭을 바꾼다.
 worldedit.setBlock(0, 4, 0, block);
