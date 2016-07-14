@@ -1,4 +1,4 @@
-var baseY = 150;
+var baseY = 100;
 var roomY = baseY + 4;
 var tunnelY = baseY + 2;
 
@@ -51,10 +51,7 @@ function makeDungeon(){
 
 function init(){
 	game.init();
-	
-	game.setPos(-45, baseY, -35);
-	game.setPos(45, baseY, 35);
-	
+	game.setSpawnArea(-45, baseY, -35, 45, baseY, 35);
 	game.setMobsPerLevel(5, 8);
 }
 

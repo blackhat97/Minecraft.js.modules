@@ -13,10 +13,10 @@ var setMobsPerLevel = function(min, max){
 };
 
 var init = function(){
-	// disable all spawing mobs
 	var gamerules = worldedit.getGameRules();
 	gamerules.setKeepInventoryEnabled(true);
 	
+	// disable all spawing mobs
 	gamerules.setMobSpawningEnabled(false);
 	gamerules.setAnimalSpawningEnabled(false);
 	gamerules.setNPCSpawningEnabled(false);
@@ -31,7 +31,17 @@ var init = function(){
 	worldedit.killAllEntities();
 };
 
-var setPos = function(x, y, z){
+
+var setSpawnArea = function(sx, sy, sz, ex, ey, ez){
+	if ( sx > ex ){ var t = sx; sx = ex; ex = t; }
+	if ( sy > ey ){ var t = sy; sy = ey; ey = t; }
+	if ( sz > ez ){ var t = sz; sz = ez; ez = t; }
+	
+	min = new Location(sx, sy, sz);
+	max = new Location(ex, ey, ez);
+};
+
+var setSpawnPosition = function(x, y, z){
 	if ( x == undefined ){
 		var loc = player.getLocation();
 		x = loc.x;
@@ -62,6 +72,22 @@ var rand = function(_min, _max){
 	return Math.floor(Math.random()*(_max - _min + 1)) + _min;
 };
 
+var timer_func = function(){
+	var count = worldedit.countAllMobs();
+	if (count > 0){
+		worldedit.log(count + " MOBs left!!!");
+	}
+	else {
+		tid1 = timer.clearInterval(tid1);
+		worldedit.log("LEVEL " + level + " cleared!!!");
+		worldedit.log(" In 30 seconds, nextLevel level will be started");
+		
+		tid2 = timer.setTimeout(function(){
+				nextLevel();
+			}, 30000);
+	}		
+};
+
 var nextLevel = function(){
 	level ++;
 	
@@ -77,33 +103,13 @@ var nextLevel = function(){
 		worldedit.spawnMob(x, y, z, m);
 	}
 	
+	tid1 = timer.setInterval(timer_func, 5000);
 	worldedit.log("LEVEL " + level + " started!!!");
-};
-
-var timer_func = function timer_func(){
-	var count = worldedit.countAllMobs();
-	if (count > 0){
-		worldedit.log(count + " MOBs left!!!");
-	}
-	else {
-		tid1 = timer.clearInterval(tid1);
-		worldedit.log("LEVEL " + level + " cleared!!!");
-		worldedit.log(" In 30 seconds, nextLevel level will be started");
-		
-		tid2 = timer.setTimeout(function(){
-			tid2 = timer.clearTimeout(tid2);
-			
-			nextLevel();
-			tid1 = timer.setInterval(timer_func, 5000);
-		}, 30000);
-	}		
 };
 
 var start = function(){
 	level = 0;
 	nextLevel();
-	
-	tid1 = timer.setInterval(timer_func, 5000);
 };
 
 var stop = function(){
@@ -115,5 +121,6 @@ exports.init = init;
 exports.start = start;
 exports.stop = stop;
 exports.nextLevel = nextLevel;
-exports.setPos = setPos;
+exports.setSpawnArea = setSpawnArea;
+exports.setSpawnPosition = setSpawnPosition;
 exports.setMobsPerLevel = setMobsPerLevel;
