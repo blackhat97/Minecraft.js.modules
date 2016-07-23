@@ -169,23 +169,28 @@ nameTable.add("ironwill", "IronWill");
 nameTable.add("crabzilla", "Crabzilla");
 nameTable.add("dashcloud", "DashCloud");
 
-exports.createMob = function(name){
+var createMob = function(name){
 	var n = nameTable.lookup(name);
 	if (n != null)
 		return worldedit.createMob(n, 'My');
 	return null;
 };
 
-exports.createItem = function(name){
+var createItem = function(name){
 	var n = nameTable.lookup(name);
 	if (n != null)
 		return worldedit.createItem(n, 'MLPMod');
 	return null;
 };
 
-exports.createBlock = function(name){
+var createBlock = function(name){
 	var n = nameTable.lookup(name);
 	if (n != null)
 		return worldedit.createBlock(n, 'MLPMod');
 	return null;
 };
+
+
+exports.createMob = createMob;
+exports.createItem = createItem;
+exports.createBlock = createBlock;
