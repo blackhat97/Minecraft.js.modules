@@ -1,11 +1,11 @@
 # 자바스크립트로 만드는 마인크래프트
 
-[Minecraft.js](https://github.com/gaiakeeper/Minecraft.js)는 Javascript로 Minecraft를 쉽게 확장할 수 있도록 하는 Forge 1.7.10 모드다. [Minecraft.js.modules](https://github.com/gaiakeeper/Minecraft.js.modules)은 Minecraft.js를 사용하는 예제와 모듈 라이브러리이다.
+[Minecraft.js](https://github.com/bosornd/Minecraft.js)는 Javascript로 Minecraft를 쉽게 확장할 수 있도록 하는 Forge 1.7.10 모드다. [Minecraft.js.modules](https://github.com/bosornd/Minecraft.js.modules)은 Minecraft.js를 사용하는 예제와 모듈 라이브러리이다.
 
 ## 설치하기
 
 1. Forge 1.7.10 모드 설치하기: [Minecraft Forge 1.7.10 다운로드 사이트](http://files.minecraftforge.net/maven/net/minecraftforge/forge/index_1.7.10.html)에서 최신 버전(1.7.10 - 10.13.4.1614)을 설치한다. 이미 설치된 경우에는 다시 할 필요 없다.
-2. 다운로드: [Minecraft.js.modules](https://github.com/gaiakeeper/Minecraft.js.modules)에서 GIT clone을 하거나 [ZIP 파일](https://github.com/gaiakeeper/Minecraft.js.modules/archive/master.zip)을 다운로드 하여 압축을 푼다.
+2. 다운로드: [Minecraft.js.modules](https://github.com/bosornd/Minecraft.js.modules)에서 GIT clone을 하거나 [ZIP 파일](https://github.com/bosornd/Minecraft.js.modules/archive/master.zip)을 다운로드 하여 압축을 푼다.
 3. Minecraft.js 모드 설치하기: 압축의 mods 폴더에 있는 모든 파일을 Minecraft mods 폴더(보통의 경우 ```%appdata%\.minecraft\mods```)에 복사한다.
     - minecraftjs-forge.1.7.10-SNAPSHOT-{version}.jar: Minecraft.js 모드
     - b77_1710f.jar: 한글 입력을 위한 모드
@@ -182,9 +182,9 @@ function stop(){
 
 ## 모듈 라이브러리 만들기
 
-상기 예에서 던전을 만드는 기능과 게임 기능을 일반화된 모듈로 만들어서 쉽게 재사용할 수 있도록 할 수 있다.  modules 폴더에 있는 [dungeon.js](https://github.com/gaiakeeper/Minecraft.js.modules/blob/master/modules/dungeon.js), [game.js](https://github.com/gaiakeeper/Minecraft.js.modules/blob/master/modules/game.js)가 바로 그 예이다. examples 폴더에 있는 [testDungeonGame.js](https://github.com/gaiakeeper/Minecraft.js.modules/blob/master/examples/testDungeonGame.js)는 이미 만들어진 모듈을 이용해서 던전을 만들고, 게임을 진행하는 예이다.
+상기 예에서 던전을 만드는 기능과 게임 기능을 일반화된 모듈로 만들어서 쉽게 재사용할 수 있도록 할 수 있다.  modules 폴더에 있는 [dungeon.js](https://github.com/bosornd/Minecraft.js.modules/blob/master/modules/dungeon.js), [game.js](https://github.com/bosornd/Minecraft.js.modules/blob/master/modules/game.js)가 바로 그 예이다. examples 폴더에 있는 [testDungeonGame.js](https://github.com/bosornd/Minecraft.js.modules/blob/master/examples/testDungeonGame.js)는 이미 만들어진 모듈을 이용해서 던전을 만들고, 게임을 진행하는 예이다.
 
 ## 다른 모드 이용하기
 
-다른 모드도 쉽게 Javascript에서 사용할 수 있다. modules 폴더에 있는 [MLPMythical.js](https://github.com/gaiakeeper/Minecraft.js.modules/blob/master/modules/MLPMythical.js)는 MLPMythical 모드를 쉽게 사용할 수 있도록 하는 모듈이며, 이를 사용하는 방법은 [testMLPMythical.js](https://github.com/gaiakeeper/Minecraft.js.modules/blob/master/examples/testMLPMythical.js)을 참고하면 된다.
+다른 모드도 쉽게 Javascript에서 사용할 수 있다. modules 폴더에 있는 [MLPMythical.js](https://github.com/bosornd/Minecraft.js.modules/blob/master/modules/MLPMythical.js)는 MLPMythical 모드를 쉽게 사용할 수 있도록 하는 모듈이며, 이를 사용하는 방법은 [testMLPMythical.js](https://github.com/bosornd/Minecraft.js.modules/blob/master/examples/testMLPMythical.js)을 참고하면 된다.
 
